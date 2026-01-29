@@ -1,3 +1,1 @@
 Initial commit for the mock interview website.
-
-on development branch.
