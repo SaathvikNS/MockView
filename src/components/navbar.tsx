@@ -18,11 +18,11 @@ export default function Header() {
 	const glassWidth = useTransform(
 		effectiveScrollY,
 		[0, 100],
-		["100%", "60%"],
+		["100%", "50%"],
 	);
 
 	return (
-		<header className="fixed top-4 left-1/2 z-50 w-[90%] -translate-x-1/2 bg-blue900 flex justify-center">
+		<header className="fixed top-4 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-blue900 flex justify-center">
 			<motion.div
 				style={{ width: glassWidth }}
 				className="relative h-14 rounded-2xl flex items-center justify-between"
@@ -35,7 +35,7 @@ export default function Header() {
 						width="100%"
 						height="100%"
 						borderRadius={50}
-						backgroundOpacity={0.25}
+						backgroundOpacity={0.65}
 						blur={11}
 						displace={0.5}
 						distortionScale={-180}
@@ -53,7 +53,7 @@ export default function Header() {
 						colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
 						animationSpeed={8}
 						showBorder={false}
-						className="rounded-none"
+						className="rounded-none backdrop-opacity-0"
 					>
 						<h1 className="text-2xl font-black tracking-normal px-3">
 							MockView
@@ -61,7 +61,11 @@ export default function Header() {
 					</GradientText>
 				</div>
 				<Link href={"/login"} className="z-0 mx-5">
-					<Button variant={"default"} size={"sm"}>
+					<Button
+						variant={"default"}
+						size={"sm"}
+						className="cursor-pointer"
+					>
 						Login
 					</Button>
 				</Link>
