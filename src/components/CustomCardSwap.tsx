@@ -3,47 +3,53 @@
 import React from "react";
 import CardSwap, { Card } from "./CardSwap";
 import Image from "next/image";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMobile, useIsTablet } from "@/hooks/use-mobile";
 
 const CustomCardSwap = () => {
 	const isMobile = useIsMobile();
-
+	const isTablet = useIsTablet();
 	return (
-		<div className="absolute h-3/10 w-full sm:h-full sm:w-6/10sm:right-0 z-1 overflow-x-hidden pointer-events-none mt-6">
-			<CardSwap
-				height={isMobile ? 1080 / 4 : 1080 / 2}
-				width={isMobile ? 1920 / 4 : 1920 / 2}
-				cardDistance={50}
-				verticalDistance={isMobile ? 60 : 80}
-				delay={5000}
-				pauseOnHover={false}
-				skewAmount={4}
-			>
-				<Card className="border-0 -top-1/6! sm:-top-1/12! -left-1/5! sm:left-1/3! shadow-2xl">
-					<Image
-						src={"/web1.png"}
-						alt="preview1"
-						fill
-						className="rounded-2xl"
-					/>
-				</Card>
-				<Card className="border-0 -top-1/6! sm:-top-1/12! -left-1/5! sm:left-1/3! shadow-2xl">
-					<Image
-						src={"/web2.png"}
-						alt="preview2"
-						fill
-						className="rounded-2xl"
-					/>
-				</Card>
-				<Card className="border-0 -top-1/6! sm:-top-1/12! -left-1/5! sm:left-1/3! shadow-2xl">
-					<Image
-						src={"/web3.png"}
-						alt="preview3"
-						fill
-						className="rounded-2xl"
-					/>
-				</Card>
-			</CardSwap>
+		<div
+			className="	relative right-0 aspect-video w-screen z-1 mt-[7vh]
+								sm:mt-[10vh]
+								md:w-[60vw] md:h-[33vw]"
+		>
+			<div className="w-full h-full flex items-center justify-center">
+				<CardSwap
+					height={"100%"}
+					width={"100%"}
+					cardDistance={50}
+					verticalDistance={isMobile ? 30 : isTablet ? 50 : 80}
+					delay={5000}
+					pauseOnHover={false}
+					skewAmount={4}
+				>
+					<Card className="border-0 shadow-2xl">
+						<Image
+							src={"/web1.png"}
+							alt="preview1"
+							fill
+							className="rounded-2xl"
+						/>
+					</Card>
+					<Card className="border-0 shadow-2xl">
+						<Image
+							src={"/web2.png"}
+							alt="preview2"
+							fill
+							className="rounded-2xl"
+						/>
+					</Card>
+					<Card className="border-0 shadow-2xl">
+						<Image
+							src={"/web3.png"}
+							alt="preview3"
+							fill
+							className="rounded-2xl"
+						/>
+					</Card>
+				</CardSwap>
+			</div>
 		</div>
 	);
 };

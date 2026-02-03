@@ -4,15 +4,18 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import GlassSurface from "@/components/GlassSurface";
 import { Button } from "@/components/ui/button";
 import GradientText from "./GradientText";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMobile, useIsTablet } from "@/hooks/use-mobile";
 import Link from "next/link";
 
 export default function Header() {
 	const { scrollY } = useScroll();
 
 	const isMobile = useIsMobile();
+	const isTablet = useIsTablet();
 
-	const effectiveScrollY = useTransform(scrollY, (v) => (isMobile ? 0 : v));
+	const effectiveScrollY = useTransform(scrollY, (v) =>
+		isMobile || isTablet ? 0 : v,
+	);
 
 	const glassOpacity = useTransform(scrollY, [0, 100], [0, 1]);
 	const glassWidth = useTransform(
@@ -31,21 +34,7 @@ export default function Header() {
 					style={{ opacity: glassOpacity }}
 					className="absolute h-full w-full"
 				>
-					<GlassSurface
-						width="100%"
-						height="100%"
-						borderRadius={50}
-						backgroundOpacity={0.65}
-						blur={11}
-						displace={0.5}
-						distortionScale={-180}
-						redOffset={0}
-						greenOffset={10}
-						blueOffset={20}
-						brightness={50}
-						opacity={0.93}
-						borderWidth={0.07}
-					/>
+					<div className="w-full h-full rounded-full backdrop-blur-2xl backdrop-brightness-40 shadow-[0_8px_24px_rgba(0,0,0,0.35)] " />
 				</motion.div>
 
 				<div className="mx-5">
