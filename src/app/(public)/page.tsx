@@ -128,7 +128,7 @@ const Home = () => {
 			</div>
 
 			{/* Problem Section */}
-			<div className="h-max w-screen bg-gray-900">
+			<div className="h-max w-screen bg-gray-900 flex flex-col items-center">
 				<FadeContent
 					duration={1}
 					className="relative text-primary-foreground text-xl text-center pt-5 
@@ -139,7 +139,10 @@ const Home = () => {
 						Why Most People Fail Interviews?
 					</div>
 				</FadeContent>
-				<div className="mt-[5vh] flex flex-col gap-3 items-center">
+				<div
+					className="mt-[5vh] flex flex-col gap-3 items-center
+										md:flex-row md:justify-evenly md:w-[95%] md:items-stretch"
+				>
 					<AnimatedContent
 						distance={100}
 						direction="vertical"
@@ -152,17 +155,19 @@ const Home = () => {
 						threshold={0.1}
 						delay={0}
 					>
-						<div className="bg-gray-900">
+						<div className="bg-gray-900 h-full">
 							<SpotlightCard
-								className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!"
+								className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!
+													md:w-[calc(90vw/3)] md:h-full"
 								spotlightColor="rgba(0, 229, 255, 0.2)"
 							>
 								<div>
-									<div className="relative flex gap-5 items-center">
+									<div className="relative flex items-center w-full">
 										<div className="absolute aspect-square rounded-full w-[10vw] flex justify-center items-center">
 											<div
-												className="relative w-[80%] aspect-square
-																	sm:w-[50%]"
+												className="absolute w-[80%] aspect-square left-0
+																	sm:w-[50%]
+																	md:w-[30%]"
 											>
 												<Image
 													src={"/norealpractice.png"}
@@ -172,17 +177,29 @@ const Home = () => {
 											</div>
 										</div>
 										<div className="w-full flex justify-center">
-											<h1 className="text-lg font-black text-primary tracking-wide">
+											<h1
+												className="text-lg font-black text-primary tracking-wide
+																	md:text-xl"
+											>
 												No Real Practice
 											</h1>
 										</div>
 									</div>
-									<div className="my-3 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0"></div>
+									<div
+										className="my-3 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0
+															md:mt-5"
+									/>
 									<div className="px-3">
-										<h1 className="text-primary pb-1">
+										<h1
+											className="text-primary pb-1
+																md:text-lg"
+										>
 											{"Reading tips isn't enough"}
 										</h1>
-										<div className="text-primary-foreground text-justify text-sm">
+										<div
+											className="text-primary-foreground text-justify text-sm
+																md:text-base"
+										>
 											{
 												"You wouldn't run a marathon by reading about running. Interview practice needs to be realistic, not theoretical."
 											}
@@ -204,17 +221,19 @@ const Home = () => {
 						threshold={0.1}
 						delay={0}
 					>
-						<div className="bg-gray-900">
+						<div className="bg-gray-900 h-full">
 							<SpotlightCard
-								className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!"
+								className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!
+													md:w-[calc(90vw/3)] md:h-full"
 								spotlightColor="rgba(0, 229, 255, 0.2)"
 							>
 								<div>
-									<div className="relative flex gap-5 items-center">
+									<div className="relative flex items-center w-full">
 										<div className="absolute aspect-square rounded-full w-[10vw] flex justify-center items-center">
 											<div
-												className="relative w-[80%] aspect-square
-																	sm:w-[50%]"
+												className="absolute w-[80%] aspect-square left-0
+																	sm:w-[50%]
+																	md:w-[30%]"
 											>
 												<Image
 													src={"/genericprep.png"}
@@ -224,17 +243,29 @@ const Home = () => {
 											</div>
 										</div>
 										<div className="w-full flex justify-center">
-											<h1 className="text-lg font-black text-primary tracking-wide">
+											<h1
+												className="text-lg font-black text-primary tracking-wide
+																	md:text-xl"
+											>
 												Generic Prep
 											</h1>
 										</div>
 									</div>
-									<div className="my-3 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0"></div>
+									<div
+										className="my-3 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0
+															md:mt-5"
+									/>
 									<div className="px-3">
-										<h1 className="text-primary pb-1">
+										<h1
+											className="text-primary pb-1
+																md:text-lg"
+										>
 											{"One-Size-Fits-All Questions"}
 										</h1>
-										<div className="text-primary-foreground text-justify text-sm">
+										<div
+											className="text-primary-foreground text-justify text-sm
+																md:text-base"
+										>
 											{
 												"Generic interview questions don't prepare you for role-specific technical and behavioral challenges."
 											}
@@ -256,17 +287,19 @@ const Home = () => {
 						threshold={0.1}
 						delay={0}
 					>
-						<div className="bg-gray-900">
+						<div className="bg-gray-900 h-full">
 							<SpotlightCard
-								className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!"
+								className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!
+													md:w-[calc(90vw/3)] md:h-full"
 								spotlightColor="rgba(0, 229, 255, 0.2)"
 							>
 								<div>
-									<div className="relative flex gap-5 items-center">
+									<div className="relative flex items-center w-full">
 										<div className="absolute aspect-square rounded-full w-[10vw] flex justify-center items-center">
 											<div
-												className="relative w-[80%] aspect-square
-																	sm:w-[50%]"
+												className="absolute w-[80%] aspect-square left-0
+																	sm:w-[50%]
+																	md:w-[30%]"
 											>
 												<Image
 													src={
@@ -278,17 +311,29 @@ const Home = () => {
 											</div>
 										</div>
 										<div className="w-full flex justify-center">
-											<h1 className="font-black text-primary tracking-wide">
+											<h1
+												className="font-black text-primary tracking-wide
+																	md:text-lg"
+											>
 												Awkward Self-Recording
 											</h1>
 										</div>
 									</div>
-									<div className="my-3 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0"></div>
+									<div
+										className="my-3 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0
+															md:mt-5"
+									/>
 									<div className="px-3">
-										<h1 className="text-primary pb-1">
+										<h1
+											className="text-primary pb-1
+																md:text-lg"
+										>
 											{"Recording Yourself Falls Flat"}
 										</h1>
-										<div className="text-primary-foreground text-justify text-sm">
+										<div
+											className="text-primary-foreground text-justify text-sm
+																md:text-base"
+										>
 											{
 												"Watching yourself is awkward and doesn't tell you what you're missing from the job requirements."
 											}
