@@ -1,6 +1,7 @@
 import AnimatedContent from "@/components/AnimatedContent";
 import CustomCardSwap from "@/components/CustomCardSwap";
 import FadeContent from "@/components/FadeContent";
+import HowItWorksStepper from "@/components/HowItWorksStepper";
 import NavBar from "@/components/navbar";
 import SplitText from "@/components/SplitText";
 import SpotlightCard from "@/components/SpotlightCard";
@@ -10,18 +11,41 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Home = () => {
+	const problemData = [
+		{
+			title: "No Real Practice",
+			header: "Reading tips isn't enough",
+			description:
+				"You wouldn't run a marathon by reading about running. Interview practice needs to be realistic, not theoretical.",
+			image: "/norealpractice.png",
+		},
+		{
+			title: "Generic Prep",
+			header: "One-Size-Fits-All Questions",
+			description:
+				"Generic interview questions don't prepare you for role-specific technical and behavioral challenges.",
+			image: "/genericprep.png",
+		},
+		{
+			title: "Awkward Self-Recording",
+			header: "Recording Yourself Falls Flat",
+			description:
+				"Watching yourself is awkward and doesn't tell you what you're missing from the job requirements.",
+			image: "/awkwardSelfRecording.png",
+		},
+	];
 	return (
 		<div className="w-screen overflow-x-hidden bg-gray-900">
 			<NavBar />
 
 			{/* Hero section */}
 			<div
-				className="block h-auto w-screen bg-[radial-gradient(circle_250px_at_50%_40%,var(--color-blue-950),var(--color-gray-900))] from-primary  
-									sm:bg-[radial-gradient(circle_700px_at_50%_40%,var(--color-blue-950),var(--color-gray-900))] sm:from-primary
-									md:flex md:items-center md:h-dvh md:bg-[radial-gradient(circle_700px_at_50%_20%,var(--color-blue-950),var(--color-gray-900))] md:from-primary"
+				className="block h-auto w-screen bg-[radial-gradient(circle_350px_at_50%_40%,var(--color-blue-950),var(--color-gray-900))] from-primary  
+									sm:bg-[radial-gradient(circle_700px_at_50%_40%,var(--color-blue-950),var(--color-gray-900))]
+									md:flex md:items-center md:h-dvh md:bg-[radial-gradient(circle_700px_at_50%_15%,var(--color-blue-950),var(--color-gray-900))]"
 			>
 				<div
-					className="z-50 h-max w-full  flex flex-col pt-[15vh] mb-[3vh] 
+					className="h-max w-full  flex flex-col pt-[15vh] mb-[3vh] 
 										md:h-full md:w-4/10 md:justify-around md:items-center md:mb-0"
 				>
 					<div className="flex flex-col">
@@ -128,224 +152,93 @@ const Home = () => {
 			</div>
 
 			{/* Problem Section */}
-			<div className="h-max w-screen bg-gray-900 flex flex-col items-center">
+			<div className="h-max w-screen flex flex-col items-center space-y-2">
 				<FadeContent
 					duration={1}
-					className="relative text-primary-foreground text-xl text-center pt-5 
-									md:text-3xl"
+					className="relative text-primary-foreground text-center text-2xl pt-5 w-[80%] wrap-normal font-bold
+									sm:text-3xl
+									md:w-[90%] md:text-left"
 				>
 					Why Most People Fail Interviews?
-					<div className="absolute inset-0 blur-sm pt-5">
-						Why Most People Fail Interviews?
-					</div>
 				</FadeContent>
 				<div
 					className="mt-[5vh] flex flex-col gap-3 items-center
 										md:flex-row md:justify-evenly md:w-[95%] md:items-stretch"
 				>
-					<AnimatedContent
-						distance={100}
-						direction="vertical"
-						reverse={false}
-						duration={0.8}
-						ease="power3.out"
-						initialOpacity={0}
-						animateOpacity
-						scale={1}
-						threshold={0.1}
-						delay={0}
-					>
-						<div className="bg-gray-900 h-full">
-							<SpotlightCard
-								className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!
+					{problemData.map((problem, i) => (
+						<AnimatedContent
+							key={i}
+							distance={100}
+							direction="vertical"
+							reverse={false}
+							duration={0.8}
+							ease="power3.out"
+							initialOpacity={0}
+							animateOpacity
+							scale={1}
+							threshold={0.1}
+							delay={0}
+						>
+							<div className="bg-gray-900 h-full">
+								<SpotlightCard
+									className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!
 													md:w-[calc(90vw/3)] md:h-full"
-								spotlightColor="rgba(0, 229, 255, 0.2)"
-							>
-								<div>
-									<div className="relative flex items-center w-full">
-										<div className="absolute aspect-square rounded-full w-[10vw] flex justify-center items-center">
-											<div
-												className="absolute w-[80%] aspect-square left-0
+									spotlightColor="rgba(0, 229, 255, 0.2)"
+								>
+									<div>
+										<div className="relative flex items-center w-full">
+											<div className="absolute aspect-square rounded-full w-[10vw] flex justify-center items-center">
+												<div
+													className="absolute w-[80%] aspect-square left-0
 																	sm:w-[50%]
 																	md:w-[30%]"
-											>
-												<Image
-													src={"/norealpractice.png"}
-													alt="no real practice"
-													fill
-												/>
+												>
+													<Image
+														src={problem.image}
+														alt="no real practice"
+														fill
+													/>
+												</div>
 											</div>
-										</div>
-										<div className="w-full flex justify-center">
-											<h1
-												className="text-lg font-black text-primary tracking-wide
+											<div className="w-full flex justify-center">
+												<h1
+													className="text-lg font-black text-primary tracking-wide
 																	md:text-xl"
-											>
-												No Real Practice
-											</h1>
-										</div>
-									</div>
-									<div
-										className="my-3 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0
-															md:mt-5"
-									/>
-									<div className="px-3">
-										<h1
-											className="text-primary pb-1
-																md:text-lg"
-										>
-											{"Reading tips isn't enough"}
-										</h1>
-										<div
-											className="text-primary-foreground text-justify text-sm
-																md:text-base"
-										>
-											{
-												"You wouldn't run a marathon by reading about running. Interview practice needs to be realistic, not theoretical."
-											}
-										</div>
-									</div>
-								</div>
-							</SpotlightCard>
-						</div>
-					</AnimatedContent>
-					<AnimatedContent
-						distance={100}
-						direction="vertical"
-						reverse={false}
-						duration={0.8}
-						ease="power3.out"
-						initialOpacity={0}
-						animateOpacity
-						scale={1}
-						threshold={0.1}
-						delay={0}
-					>
-						<div className="bg-gray-900 h-full">
-							<SpotlightCard
-								className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!
-													md:w-[calc(90vw/3)] md:h-full"
-								spotlightColor="rgba(0, 229, 255, 0.2)"
-							>
-								<div>
-									<div className="relative flex items-center w-full">
-										<div className="absolute aspect-square rounded-full w-[10vw] flex justify-center items-center">
-											<div
-												className="absolute w-[80%] aspect-square left-0
-																	sm:w-[50%]
-																	md:w-[30%]"
-											>
-												<Image
-													src={"/genericprep.png"}
-													alt="generic preparation"
-													fill
-												/>
+												>
+													{problem.title}
+												</h1>
 											</div>
 										</div>
-										<div className="w-full flex justify-center">
-											<h1
-												className="text-lg font-black text-primary tracking-wide
-																	md:text-xl"
-											>
-												Generic Prep
-											</h1>
-										</div>
-									</div>
-									<div
-										className="my-3 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0
-															md:mt-5"
-									/>
-									<div className="px-3">
-										<h1
-											className="text-primary pb-1
-																md:text-lg"
-										>
-											{"One-Size-Fits-All Questions"}
-										</h1>
 										<div
-											className="text-primary-foreground text-justify text-sm
-																md:text-base"
-										>
-											{
-												"Generic interview questions don't prepare you for role-specific technical and behavioral challenges."
-											}
-										</div>
-									</div>
-								</div>
-							</SpotlightCard>
-						</div>
-					</AnimatedContent>
-					<AnimatedContent
-						distance={100}
-						direction="vertical"
-						reverse={false}
-						duration={0.8}
-						ease="power3.out"
-						initialOpacity={0}
-						animateOpacity
-						scale={1}
-						threshold={0.1}
-						delay={0}
-					>
-						<div className="bg-gray-900 h-full">
-							<SpotlightCard
-								className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!
-													md:w-[calc(90vw/3)] md:h-full"
-								spotlightColor="rgba(0, 229, 255, 0.2)"
-							>
-								<div>
-									<div className="relative flex items-center w-full">
-										<div className="absolute aspect-square rounded-full w-[10vw] flex justify-center items-center">
-											<div
-												className="absolute w-[80%] aspect-square left-0
-																	sm:w-[50%]
-																	md:w-[30%]"
+											className="my-3 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0
+															md:mt-5"
+										/>
+										<div className="px-3">
+											<h1
+												className="text-primary pb-1
+																md:text-lg"
 											>
-												<Image
-													src={
-														"/awkwardselfrecording.png"
-													}
-													alt="awkward self recording"
-													fill
-												/>
+												{problem.header}
+											</h1>
+											<div
+												className="text-muted-foreground text-justify text-sm
+																md:text-base"
+											>
+												{problem.description}
 											</div>
 										</div>
-										<div className="w-full flex justify-center">
-											<h1
-												className="font-black text-primary tracking-wide
-																	md:text-lg"
-											>
-												Awkward Self-Recording
-											</h1>
-										</div>
 									</div>
-									<div
-										className="my-3 w-full h-0.5 bg-linear-to-r from-primary/0 via-primary to-primary/0
-															md:mt-5"
-									/>
-									<div className="px-3">
-										<h1
-											className="text-primary pb-1
-																md:text-lg"
-										>
-											{"Recording Yourself Falls Flat"}
-										</h1>
-										<div
-											className="text-primary-foreground text-justify text-sm
-																md:text-base"
-										>
-											{
-												"Watching yourself is awkward and doesn't tell you what you're missing from the job requirements."
-											}
-										</div>
-									</div>
-								</div>
-							</SpotlightCard>
-						</div>
-					</AnimatedContent>
+								</SpotlightCard>
+							</div>
+						</AnimatedContent>
+					))}
 				</div>
 			</div>
-			<div className="h-screen w-screen"></div>
+
+			{/* How it works section */}
+			<div>
+				<HowItWorksStepper />
+			</div>
 			<div className="h-screen w-screen"></div>
 		</div>
 	);

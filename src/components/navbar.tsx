@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import GlassSurface from "@/components/GlassSurface";
 import { Button } from "@/components/ui/button";
 import GradientText from "./GradientText";
 import { useIsMobile, useIsTablet } from "@/hooks/use-mobile";
@@ -25,7 +24,7 @@ export default function Header() {
 	);
 
 	return (
-		<header className="fixed top-4 left-1/2 z-50 w-[80%] -translate-x-1/2 bg-blue900 flex justify-center">
+		<header className="fixed top-4 left-1/2 z-50 w-[80%] -translate-x-1/2 flex justify-center">
 			<motion.div
 				style={{ width: glassWidth }}
 				className="relative h-14 rounded-2xl flex items-center justify-between"
