@@ -34,8 +34,48 @@ const Home = () => {
 			image: "/awkwardSelfRecording.png",
 		},
 	];
+
+	const features = [
+		{
+			icon: "🎯",
+			title: "Role-Specific Questions",
+			description:
+				"Not generic—questions tailored to the exact job you're applying for.",
+		},
+		{
+			icon: "🎤",
+			title: "Audio or Text Answers",
+			description:
+				"Practice speaking out loud or type your responses. Your choice.",
+		},
+		{
+			icon: "🤖",
+			title: "Instant AI Feedback",
+			description:
+				"Know what you nailed, what you missed, and how to improve—right away.",
+		},
+		{
+			icon: "📊",
+			title: "Track Your Progress",
+			description:
+				"See your scores improve across sessions. Visualize your growth.",
+		},
+		{
+			icon: "📧",
+			title: "Email Summaries",
+			description:
+				"Get detailed performance reports sent to your inbox after each session.",
+		},
+		{
+			icon: "🔒",
+			title: "Private & Secure",
+			description:
+				"Your practice sessions are private. We don't share your data.",
+		},
+	];
+
 	return (
-		<div className="w-screen overflow-x-hidden bg-gray-900">
+		<div className="w-screen overflow-x-hidden bg-gray-900 overflow-clip">
 			<NavBar />
 
 			{/* Hero section */}
@@ -239,7 +279,60 @@ const Home = () => {
 			<div>
 				<HowItWorksStepper />
 			</div>
-			<div className="h-screen w-screen"></div>
+
+			{/* Feaures grids */}
+			<div>
+				<section className="relative py-10">
+					<div className="mx-auto px-6">
+						{/* Heading */}
+						<h2 className="text-center text-primary-foreground text-2xl sm:text-3xl font-bold tracking-tight">
+							Everything You Need to <br className="sm:hidden" />
+							<span className="text-primary">Ace</span> Interviews
+						</h2>
+
+						{/* Grid */}
+						<div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-center">
+							{features.map((feature, i) => (
+								<AnimatedContent
+									key={i}
+									distance={100}
+									direction="vertical"
+									reverse={false}
+									duration={0.8}
+									ease="power3.out"
+									initialOpacity={0}
+									animateOpacity
+									scale={1}
+									threshold={0.1}
+									delay={0}
+								>
+									<div className="bg-gray-900 h-full flex">
+										<SpotlightCard
+											className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!
+													md:w-[calc(90vw/3)] md:h-full"
+											spotlightColor="rgba(0, 229, 255, 0.2)"
+										>
+											<div className="flex gap-5 items-center">
+												<div className="text-2xl">
+													{feature.icon}
+												</div>
+
+												<h3 className="text-lg font-semibold text-primary">
+													{feature.title}
+												</h3>
+											</div>
+
+											<p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+												{feature.description}
+											</p>
+										</SpotlightCard>
+									</div>
+								</AnimatedContent>
+							))}
+						</div>
+					</div>
+				</section>
+			</div>
 		</div>
 	);
 };

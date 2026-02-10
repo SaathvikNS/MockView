@@ -28,12 +28,12 @@ export default function HowItWorksStepper() {
 			className="relative mx-auto px-6 py-15 flex flex-col items-center
                                         bg-[radial-gradient(circle_300px_at_0%_50%,var(--color-blue-950),var(--color-gray-900))] from-primary
                                         sm:bg-[radial-gradient(circle_325px_at_0%_50%,var(--color-blue-950),var(--color-gray-900))] 
-                                        md:bg-[radial-gradient(circle_325px_at_30%_55%,var(--color-blue-950),var(--color-gray-900))] "
+                                        md:bg-[radial-gradient(circle_0px_at_30%_55%,var(--color-blue-950),var(--color-gray-900))] "
 		>
 			{/* Heading */}
 			<FadeContent
 				duration={3}
-				className="mb-20 text-center text-2xl font-bold sm:text-4xl text-accent"
+				className="mb-20 text-center text-2xl font-bold sm:text-3xl text-accent"
 			>
 				Your Interview Prep in just
 				<p
@@ -47,8 +47,14 @@ export default function HowItWorksStepper() {
 
 			{/* Timeline */}
 			<div className="md:flex w-full gap-5 justify-around items-center">
-				<div className="relative hidden md:block w-1/3 aspect-square rounded-2xl overflow-hidden drop-shadow-2xl">
-					<Image src={"/howitworks.png"} alt="How it works" fill />
+				<div className="relative hidden md:block w-1/3 aspect-square rounded-2xl ">
+					<Image
+						src={"/howitworks.png"}
+						alt="How it works"
+						fill
+						className="rounded-2xl z-10 drop-shadow-2xl"
+					/>
+					<div className="blur-md h-full w-full bg-neutral-950 z-5 rounded-2xl translate-2" />
 				</div>
 				<ol className="relative space-y-20 sm:w-[90%] md:w-1/2">
 					{/* Vertical line */}
