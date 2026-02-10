@@ -2,6 +2,7 @@ import AnimatedContent from "@/components/AnimatedContent";
 import CustomCardSwap from "@/components/CustomCardSwap";
 import FadeContent from "@/components/FadeContent";
 import HowItWorksStepper from "@/components/HowItWorksStepper";
+import HeroSection from "@/components/landing/HeroSection";
 import NavBar from "@/components/navbar";
 import SplitText from "@/components/SplitText";
 import SpotlightCard from "@/components/SpotlightCard";
@@ -75,8 +76,9 @@ const Home = () => {
 	];
 
 	return (
-		<div className="w-screen overflow-x-hidden bg-gray-900 overflow-clip">
+		<div className="min-h-screen bg-background">
 			<NavBar />
+			<HeroSection />
 
 			{/* Hero section */}
 			<div
@@ -221,7 +223,7 @@ const Home = () => {
 						>
 							<div className="bg-gray-900 h-full">
 								<SpotlightCard
-									className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!
+									className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-xl w-[80vw] p-5!
 													md:w-[calc(90vw/3)] md:h-full"
 									spotlightColor="rgba(0, 229, 255, 0.2)"
 								>
@@ -281,7 +283,10 @@ const Home = () => {
 			</div>
 
 			{/* Feaures grids */}
-			<div>
+			<div
+				className="bg-[radial-gradient(circle_600px_at_100%_50%,var(--color-blue-950),var(--color-gray-900))] from-primary
+									sm:bg-[linear-gradient(var(--color-gray-900),var(--color-blue-950),var(--color-gray-900))]"
+			>
 				<section className="relative py-10">
 					<div className="mx-auto px-6">
 						{/* Heading */}
@@ -291,7 +296,11 @@ const Home = () => {
 						</h2>
 
 						{/* Grid */}
-						<div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-center">
+						<div
+							className="mt-14 grid gap-6 justify-center items-stretch
+												sm:grid-cols-2 
+												lg:grid-cols-3 "
+						>
 							{features.map((feature, i) => (
 								<AnimatedContent
 									key={i}
@@ -305,11 +314,16 @@ const Home = () => {
 									scale={1}
 									threshold={0.1}
 									delay={0}
+									className="flex justify-center rounded-xl overflow-clip
+														md:rounded-2xl"
 								>
-									<div className="bg-gray-900 h-full flex">
+									<div
+										className="bg-gray-900 h-full flex rounded-lg w-full 
+															md:w-[90%]"
+									>
 										<SpotlightCard
 											className="backdrop-blur-3xl border-none! bg-transparent! backdrop-brightness-120 rounded-lg w-[80vw] p-5!
-													md:w-[calc(90vw/3)] md:h-full"
+													md:w-full md:h-full"
 											spotlightColor="rgba(0, 229, 255, 0.2)"
 										>
 											<div className="flex gap-5 items-center">
@@ -333,6 +347,56 @@ const Home = () => {
 					</div>
 				</section>
 			</div>
+
+			<div className="h-screen w-screen">
+				<section className="relative overflow-hidden py-24">
+					{/* Gradient background */}
+					<div className="absolute inset-0 bg-linear-to-br from-indigo-600 via-purple-600 to-pink-600" />
+
+					{/* Subtle noise / overlay for depth */}
+					<div className="absolute inset-0 bg-black/20" />
+
+					<div className="relative mx-auto max-w-4xl px-6 text-center">
+						{/* Heading */}
+						<h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+							Ready to Stop Guessing?
+						</h2>
+
+						{/* Subheading */}
+						<p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed">
+							Start practicing with AI feedback today—
+							<span className="font-semibold text-white">
+								{" "}
+								completely free
+							</span>
+						</p>
+
+						{/* CTA */}
+						<div className="mt-10">
+							<a
+								href="/start"
+								className="
+              inline-flex items-center justify-center
+              rounded-xl bg-white px-8 py-4
+              text-lg font-semibold text-black
+              shadow-xl shadow-black/30
+              transition
+              hover:-translate-y-1 hover:shadow-2xl
+              focus:outline-none focus:ring-4 focus:ring-white/40
+            "
+							>
+								Start Your First Mock Interview
+								<span className="ml-2 transition-transform group-hover:translate-x-1">
+									→
+								</span>
+							</a>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div className="h-screen w-screen"></div>
+			<div className="h-screen w-screen"></div>
+			<div className="h-screen w-screen"></div>
 		</div>
 	);
 };
