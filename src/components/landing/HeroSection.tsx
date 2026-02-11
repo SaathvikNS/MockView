@@ -7,7 +7,7 @@ import CustomCardSwap from "../CustomCardSwap";
 
 const HeroSection = () => {
 	return (
-		<section className="pt-28 pb-20 px-4">
+		<section className="pt-28 sm:pb-20 px-4">
 			<div className="container mx-auto">
 				<div className="grid lg:grid-cols-7 items-center">
 					<div className="lg:col-span-3 space-y-8">
@@ -35,7 +35,7 @@ const HeroSection = () => {
 						</div>
 						<div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
 							<span className="flex items-center gap-1.5">
-								<Check className="h-4 w-4 text-accent" /> Free
+								<Check className="h-4 w-4 text-accent" /> Free{" "}
 								Practice Session
 							</span>
 							<span className="flex items-center gap-1.5">
@@ -43,7 +43,7 @@ const HeroSection = () => {
 								Personal performace analysis
 							</span>
 							<span className="flex items-center gap-1.5">
-								<Check className="h-4 w-4 text-accent" /> 500+
+								<Check className="h-4 w-4 text-accent" /> 500+{" "}
 								interview practice
 							</span>
 						</div>

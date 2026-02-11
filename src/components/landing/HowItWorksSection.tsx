@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import FadeContent from "./FadeContent";
 import Image from "next/image";
+import FadeContent from "../FadeContent";
 
 const steps = [
 	{
@@ -22,18 +22,16 @@ const steps = [
 	},
 ];
 
-export default function HowItWorksStepper() {
+export default function HowItWorksSection() {
 	return (
 		<section
-			className="relative mx-auto px-6 py-15 flex flex-col items-center
-                                        bg-[radial-gradient(circle_300px_at_0%_50%,var(--color-blue-950),var(--color-gray-900))] from-primary
-                                        sm:bg-[radial-gradient(circle_325px_at_0%_50%,var(--color-blue-950),var(--color-gray-900))] 
-                                        md:bg-[radial-gradient(circle_0px_at_30%_55%,var(--color-blue-950),var(--color-gray-900))] "
+			id="how-it-works"
+			className="relative mx-auto px-6 py-15 flex flex-col items-center background-secondary"
 		>
 			{/* Heading */}
 			<FadeContent
 				duration={3}
-				className="mb-20 text-center text-2xl font-bold sm:text-3xl text-accent"
+				className="mb-20 text-center text-3xl sm:text-4xl font-bold text-accent"
 			>
 				Your Interview Prep in just
 				<p
