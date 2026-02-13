@@ -1,41 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.9940 0 0);
-  --foreground: oklch(0 0 0);
-  --card: oklch(0.9940 0 0);
-  --card-foreground: oklch(0 0 0);
-  --popover: oklch(0.9911 0 0);
-  --popover-foreground: oklch(0 0 0);
-  --primary: oklch(0.6566 0.2038 293.9093);
-  --primary-foreground: oklch(1.0000 0 0);
-  --secondary: oklch(1.0000 0 0);
-  --secondary-foreground: oklch(0.1344 0 0);
-  --muted: oklch(0.9702 0 0);
-  --muted-foreground: oklch(86.995% 0.0001 271.152);
-  --accent: oklch(1.0000 0 0);
-  --accent-foreground: oklch(0.6230 0.1605 258.8331);
-  --destructive: oklch(0.7214 0.1340 19.2270);
-  --destructive-foreground: oklch(1.0000 0 0);
-  --border: oklch(1.0000 0 0);
-  --input: oklch(0.9401 0 0);
-  --ring: oklch(0 0 0);
+  --background: oklch(0.98 0.01 255);
+  --foreground: oklch(0.16 0.04 255);
+
+  --card: oklch(0.99 0.005 255);
+  --card-foreground: oklch(0.16 0.04 255);
+
+  --popover: oklch(0.99 0.005 255);
+  --popover-foreground: oklch(0.16 0.04 255);
+
+  /* Primary (blue) */
+  --primary: oklch(0.62 0.18 255);
+  --primary-foreground: oklch(0.99 0 0);
+
+  /* Secondary / muted surfaces */
+  --secondary: oklch(0.95 0.01 255);
+  --secondary-foreground: oklch(0.18 0.04 255);
+
+  --muted: oklch(0.95 0.01 255);
+  --muted-foreground: oklch(0.55 0.03 255);
+
+  /* Accent (green) */
+  --accent: oklch(0.66 0.17 155);
+  --accent-foreground: oklch(0.99 0 0);
+
+  /* Destructive (red) */
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  /* UI chrome */
+  --border: oklch(0.90 0.01 255);
+  --input: oklch(0.90 0.01 255);
+  --ring: oklch(0.62 0.18 255);
   --chart-1: oklch(0.7994 0.1193 158.6595);
   --chart-2: oklch(0.6566 0.2038 293.9093);
   --chart-3: oklch(0.7981 0.1318 54.8818);
   --chart-4: oklch(0.6767 0.1356 259.3856);
   --chart-5: oklch(0.5590 0 0);
-  --sidebar: oklch(1.0000 0 0);
-  --sidebar-foreground: oklch(0 0 0);
-  --sidebar-primary: oklch(0 0 0);
-  --sidebar-primary-foreground: oklch(1.0000 0 0);
-  --sidebar-accent: oklch(0.9401 0 0);
-  --sidebar-accent-foreground: oklch(0 0 0);
-  --sidebar-border: oklch(0.9401 0 0);
-  --sidebar-ring: oklch(0 0 0);
+
+  --sidebar-background: oklch(0.209 0.042 274.6);
+  --sidebar-foreground: oklch(0.918 0.010 264.5);
+
+  --sidebar-primary: oklch(0.547 0.187 271.3);
+  --sidebar-primary-foreground: oklch(1.000 0.000 89.9);
+
+  --sidebar-accent: oklch(0.287 0.048 275.3);
+  --sidebar-accent-foreground: oklch(0.918 0.010 264.5);
+
+  --sidebar-border: oklch(0.310 0.043 275.9);
+  --sidebar-ring: oklch(0.458 0.215 268.0);
+
+
   --font-sans: Plus Jakarta Sans, sans-serif;
   --font-serif: Lora, serif;
   --font-mono: IBM Plex Mono, monospace;
@@ -59,38 +80,38 @@
 }
 
 .dark {
-  --background: oklch(0.2442 0.0077 274.6262);
-  --foreground: oklch(0.9551 0 0);
-  --card: oklch(0.2860 0.0092 276.7952);
-  --card-foreground: oklch(0.9551 0 0);
-  --popover: oklch(0.2860 0.0092 276.7952);
-  --popover-foreground: oklch(0.9551 0 0);
-  --primary: oklch(0.7695 0.1342 296.8373);
-  --primary-foreground: oklch(1.0000 0 0);
-  --secondary: oklch(0.3292 0.0147 269.2379);
-  --secondary-foreground: oklch(0.9551 0 0);
-  --muted: oklch(0.3292 0.0147 269.2379);
-  --muted-foreground: oklch(0.7058 0 0);
-  --accent: oklch(0.3120 0.0436 260.6425);
-  --accent-foreground: oklch(0.9023 0.0506 245.6588);
-  --destructive: oklch(0.8403 0.0806 18.8961);
-  --destructive-foreground: oklch(1.0000 0 0);
-  --border: oklch(0.3709 0.0110 264.4320);
-  --input: oklch(0.3709 0.0110 264.4320);
-  --ring: oklch(0.7695 0.1342 296.8373);
+  --background: hsl(230 25% 8%);
+  --foreground: hsl(220 20% 95%);
+  --card: hsl(230 20% 12%);
+  --card-foreground: hsl(220 20% 95%);
+  --popover: hsl(230 20% 12%);
+  --popover-foreground: hsl(220 20% 95%);
+  --primary: hsl(231 67% 58%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(230 15% 18%);
+  --secondary-foreground: hsl(220 20% 95%);
+  --muted: hsl(230 15% 18%);
+  --muted-foreground: hsl(220 10% 55%);
+  --accent: hsl(158 64% 42%);
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(0 62% 30%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(230 15% 20%);
+  --input: hsl(230 15% 20%);
+  --ring: hsl(231 67% 58%);
   --chart-1: oklch(0.8461 0.1388 154.2837);
   --chart-2: oklch(0.7695 0.1342 296.8373);
   --chart-3: oklch(0.9801 0.0097 17.3214);
   --chart-4: oklch(0.7906 0.0949 259.8939);
   --chart-5: oklch(0.7058 0 0);
-  --sidebar: oklch(0.2191 0.0058 285.9113);
-  --sidebar-foreground: oklch(0.9551 0 0);
-  --sidebar-primary: oklch(0.7695 0.1342 296.8373);
-  --sidebar-primary-foreground: oklch(1.0000 0 0);
-  --sidebar-accent: oklch(0.3292 0.0147 269.2379);
-  --sidebar-accent-foreground: oklch(0.7695 0.1342 296.8373);
-  --sidebar-border: oklch(0.3709 0.0110 264.4320);
-  --sidebar-ring: oklch(0.7695 0.1342 296.8373);
+  --sidebar-background: hsl(231 40% 8%);
+  --sidebar-foreground: hsl(220 20% 90%);
+  --sidebar-primary: hsl(231 67% 55%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(231 30% 15%);
+  --sidebar-accent-foreground: hsl(220 20% 90%);
+  --sidebar-border: hsl(231 25% 15%);
+  --sidebar-ring: hsl(231 67% 48%);
   --font-sans: Plus Jakarta Sans, sans-serif;
   --font-serif: Lora, serif;
   --font-mono: IBM Plex Mono, monospace;
@@ -179,12 +200,39 @@ body {
   scrollbar-width: none;
 }
 
+
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(231, 67%, 48%), hsl(260, 55%, 50%));
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(231, 67%, 48%), hsl(158, 64%, 42%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
