@@ -442,7 +442,7 @@ npx prisma generate
 
 ## License
 
-MIT License — free to use, fork, and build on.
+GNU General Public License - see the [LICENSE.md](LICENSE.md) file for more details.
 
 ---
 
