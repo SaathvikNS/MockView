@@ -1,0 +1,63 @@
+flowchart TD
+    a[[Landing Page]] 
+    
+    a --> b[[Login]]
+        b --> d(login using already used provider) 
+            d --> n
+        b --> e(login using fresh provider)
+            e --> m[/provider signup/]
+                m --> n
+
+    a --> c[[Sign Up]]
+        c --> f(signup using already used provider)
+            f-->k[/provider login/]
+            k--> n
+        c --> g(signup using fresh provider)
+            g --> i(provider not yet linked to any account)
+                i --> j(create an account)
+                    j --> n{"(Protected)"}
+
+            g --> h(provider already linked to an account)
+                h --> l[[error - mail already linked to an account, use previously used provider to login]]
+                    l-->g
+    
+    b--create new account-->c
+    c--account already exist-->b
+
+    n-->o(Dashboard)
+        o-->t(new interview)
+            t--create new interview session-->ta["`Takes in three inputs:
+            1. Job Title
+            2. company(optional)
+            3. Job Description`"]
+            ta --> tb[job title provided]
+                tb-->tba(yes)
+                tb-->tbb(no)
+                    tbb-->tbba{{error, missing information}}
+            ta --> tc[Job description provided]
+                tc-->tca{{yes}}
+                    tca-->tcaa{{length sufficient}}
+                    tca-->tcab{{length insufficient}}
+                        tcab-->tcaba{{insufficient information}}
+                tc-->tcb{{no}}
+                    tcb-->tcba{{error, missing information}}
+                
+                tba ---> u("show questions")
+
+                u-->recA("Ready to record")
+                u-->recB("Recording")
+                u-->recC("Recorded")
+
+                tcaa-->u
+
+
+    n-->p(Sessions)
+    p-->pa["`contains details about all the sessions unless deleted`"]
+
+    n-->q(analytics)
+    q-->qa["`contains analytical information about all sessions included and individual sessions as well`"]
+
+    n-->r(settings)
+
+    n-->s(sign out)
+        s-->a

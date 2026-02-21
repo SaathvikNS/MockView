@@ -10,16 +10,17 @@ const CustomCardSwap = () => {
 	const isTablet = useIsTablet();
 	return (
 		<div
-			className="	relative right-0 aspect-video w-screen z-1 mt-[7vh]
+			className="	right-0 aspect-video w-[calc(100vw-2rem)] z-1 mt-[7vh]
 								sm:mt-[10vh]
-								md:w-[60vw] md:h-[33vw]"
+								md:w-[80vw]
+								lg:w-[50vw]"
 		>
 			<div className="w-full h-full flex items-center justify-center">
 				<CardSwap
 					height={"100%"}
 					width={"100%"}
-					cardDistance={50}
-					verticalDistance={isMobile ? 30 : isTablet ? 50 : 80}
+					cardDistance={isMobile ? 20 : isTablet ? 50 : 60}
+					verticalDistance={isMobile ? 20 : isTablet ? 50 : 60}
 					delay={5000}
 					pauseOnHover={false}
 					skewAmount={4}

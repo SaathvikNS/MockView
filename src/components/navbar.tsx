@@ -1,63 +1,86 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import GradientText from "./GradientText";
-import { useIsMobile, useIsTablet } from "@/hooks/use-mobile";
+import { useState } from "react";
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import ThemeToggle from "./ui/ThemeToggle";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
-export default function Header() {
-	const { scrollY } = useScroll();
-
-	const isMobile = useIsMobile();
-	const isTablet = useIsTablet();
-
-	const effectiveScrollY = useTransform(scrollY, (v) =>
-		isMobile || isTablet ? 0 : v,
-	);
-
-	const glassOpacity = useTransform(scrollY, [0, 100], [0, 1]);
-	const glassWidth = useTransform(
-		effectiveScrollY,
-		[0, 100],
-		["100%", "50%"],
-	);
+const Navbar = () => {
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<header className="fixed top-4 left-1/2 z-50 w-[80%] -translate-x-1/2 flex justify-center">
-			<motion.div
-				style={{ width: glassWidth }}
-				className="relative h-14 rounded-2xl flex items-center justify-between"
-			>
-				<motion.div
-					style={{ opacity: glassOpacity }}
-					className="absolute h-full w-full"
-				>
-					<div className="w-full h-full rounded-full backdrop-blur-2xl backdrop-brightness-40 shadow-[0_8px_24px_rgba(0,0,0,0.35)] " />
-				</motion.div>
-
-				<div className="mx-5">
-					<GradientText
-						colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
-						animationSpeed={8}
-						showBorder={false}
-						className="rounded-none backdrop-opacity-0"
-					>
-						<h1 className="text-2xl font-black tracking-normal px-3">
-							MockView
-						</h1>
-					</GradientText>
-				</div>
-				<Link href={"/login"} className="z-0 mx-5">
-					<Button
-						variant={"default"}
-						size={"sm"}
-						className="cursor-pointer"
-					>
-						Login
-					</Button>
+		<nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+			<div className="container mx-auto px-4 h-16 flex items-center justify-between">
+				<Link href="/" className="text-xl font-bold text-foreground">
+					Mock <span className="text-primary">View</span>
 				</Link>
-			</motion.div>
-		</header>
+
+				<div className="hidden md:flex items-center gap-8">
+					<a
+						href="#features"
+						className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+					>
+						Features
+					</a>
+					<a
+						href="#how-it-works"
+						className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+					>
+						How It Works
+					</a>
+					<a
+						href="#demo"
+						className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+					>
+						Demo
+					</a>
+				</div>
+
+				<div className="hidden md:flex items-center gap-3">
+					<ThemeToggle />
+					<Button asChild>
+						<Link href="/login">Get Started Free</Link>
+					</Button>
+				</div>
+
+				<Popover open={isOpen} onOpenChange={setIsOpen}>
+					<PopoverTrigger className="md:hidden text-foreground">
+						{isOpen ? <X size={24} /> : <Menu size={24} />}
+					</PopoverTrigger>
+					<PopoverContent align="end" className="w-full">
+						<div className="md:hidden bg-background border-b border-border px-4 py-4 space-y-3">
+							<a
+								href="#features"
+								className="block text-sm text-muted-foreground hover:text-foreground"
+							>
+								Features
+							</a>
+							<a
+								href="#how-it-works"
+								className="block text-sm text-muted-foreground hover:text-foreground"
+							>
+								How It Works
+							</a>
+							<a
+								href="#demo"
+								className="block text-sm text-muted-foreground hover:text-foreground"
+							>
+								Demo
+							</a>
+							<div className="flex items-center gap-3 pt-3">
+								<ThemeToggle />
+								<Button asChild className="flex-1">
+									<Link href="/login">Get Started Free</Link>
+								</Button>
+							</div>
+						</div>
+					</PopoverContent>
+				</Popover>
+			</div>
+		</nav>
 	);
-}
+};
+
+export default Navbar;
