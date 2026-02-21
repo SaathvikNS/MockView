@@ -40,11 +40,8 @@ const Navbar = () => {
 
 				<div className="hidden md:flex items-center gap-3">
 					<ThemeToggle />
-					<Button variant="ghost" asChild>
-						<Link href="/login">Login</Link>
-					</Button>
 					<Button asChild>
-						<Link href="/signup">Get Started Free</Link>
+						<Link href="/login">Get Started Free</Link>
 					</Button>
 				</div>
 
@@ -74,15 +71,8 @@ const Navbar = () => {
 							</a>
 							<div className="flex items-center gap-3 pt-3">
 								<ThemeToggle />
-								<Button
-									variant="outline"
-									asChild
-									className="flex-1"
-								>
-									<Link href="/login">Login</Link>
-								</Button>
 								<Button asChild className="flex-1">
-									<Link href="/signup">Get Started Free</Link>
+									<Link href="/login">Get Started Free</Link>
 								</Button>
 							</div>
 						</div>

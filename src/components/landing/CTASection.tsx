@@ -32,7 +32,7 @@ const CTASection = () => (
 							free
 						</p>
 						<Button size="lg" variant="secondary" asChild>
-							<Link href="/signup">
+							<Link href="/login">
 								Start Your First Mock Interview{" "}
 								<ArrowRight className="ml-2 h-4 w-4" />
 							</Link>
